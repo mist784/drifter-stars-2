@@ -1,0 +1,32 @@
+{
+  "name": "drifter-stars-2",
+  "version": "2.0.0",
+  "description": "Json-configurable version of Drifter Stars by @cr0ybot which now bundles delaunay by @ironwallaby. Particle glare is removed btw.",
+  "main": "src/DrifterStars2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "rimraf dist",
+    "build": "npm-run-all --parallel build:*",
+    "build:umd": "webpack --output-filename DrifterStars2.js",
+    "build:umd.min": "webpack --output-filename DrifterStars2.min.js -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HungryCosmos/drifter-stars-2.git"
+  },
+  "author": "HungryCosmos <hungrycosmos@protonmail.com> (https://hungrycosmos.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HungryCosmos/drifter-stars-2/issues"
+  },
+  "homepage": "https://github.com/HungryCosmos/drifter-stars-2#readme",
+  "dependencies": {
+    "delaunay-fast": "1.0.1",
+    "merge-json": "0.1.0-b.3"
+  },
+  "devDependencies": {
+    "npm-run-all": "4.1.1",
+    "rimraf": "2.6.2",
+    "webpack": "3.8.1"
+  }
+}

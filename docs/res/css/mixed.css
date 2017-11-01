@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#canvas {
+    z-index: 1;
+    position: absolute;
+    background-color: black;
+}
+
+#content {
+    position: absolute;
+    z-index: 2;
+    background-color: transparent;
+    display: table;
+    text-align: center;
+    font-family: Kanit, Helvetica, sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #c3c3c3;
+}
+
+a {
+    color: #e1e1e1;
+    font-weight: 500;
+}
+
+a:active, a:hover, a:focus {
+    color: #ffffff;
+}
+
+#centered-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#useful-text {
+    background-color: rgba(0, 0, 0, 0.70);
+    padding: 0 10px;
+}

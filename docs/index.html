@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Metadata-->
+    <title>HungryCosmos - DrifterStars2 demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width, user-scalable=no, shrink-to-fit=no">
+    <meta name="description" content="HungryCosmos - Bekzhan Baikatov is Almaty based Java / Node developer and designer" />
+    <meta name="keywords" content="HungryCosmos, Bekzhan Baikatov, java developer, node developer, fullstack developer, developer, programmer, designer"/>
+
+    <!--Dependencies-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit:400,500" />
+    <link rel="stylesheet" type="text/css" href="./res/css/mixed.css" />
+
+    <!--Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../res/ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../res/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../res/ico/favicon-16x16.png">
+    <link rel="manifest" href="../res/ico/manifest.json">
+    <link rel="mask-icon" href="../res/ico/safari-pinned-tab.svg" color="#11010d">
+    <link rel="shortcut icon" href="../res/ico/favicon.ico">
+    <meta name="msapplication-config" content="../res/ico/browserconfig.xml">
+    <meta name="theme-color" content="#11010d">
+</head>
+<body>
+    <!--MUST HAVE CANVAS TO DRAW-->
+    <canvas id="canvas"></canvas>
+
+    <!--content-->
+    <div id="content">
+        <div id="centered-cell">
+            <span id="useful-text">Eh, I've seen <a href='https://hungrycosmos.com'>better</a></span>
+        </div>
+    </div>
+
+    <!--loading this library-->
+    <script src="https://cdn.rawgit.com/HungryCosmos/drifter-stars-2/v2.0.0/dist/umd/DrifterStars2.min.js"></script>
+
+    <!--initialization-->
+    <script>
+        // First, we need to get reference to canvas element
+        var fullScreenCanvas = document.getElementById('canvas');
+
+        // Take a look at all possible options. You can change what you want right here, but we will skip it for now.
+        var DEFAULTS = {
+
+            // dom canvas
+            canvas: null,
+
+            // settings
+            particleCount: 32,
+            flareCount: 32,
+            motion: 0.05,
+            particleColor: '#FDE8E1',
+            flareColor: '#757575',
+            linkColor: 'white',
+            particleSizeBase: 1,
+            particleSizeMultiplier: 0.5,
+            flareSizeBase: 100,
+            flareSizeMultiplier: 100,
+            lineWidth: 2,
+            linkChance: 100,         // chance per frame of link, higher: smaller chance
+            linkLengthMin: 3,        // min linked vertices
+            linkLengthMax: 5,        // max linked vertices
+            linkOpacity: 0.3,        // number between 0 & 1
+            linkFade: 28,            // link fade-out frames
+            linkSpeed: 4,            // distance a link travels in 1 frame
+            renderParticles: true,
+            renderFlares: true,
+            renderLinks: false,
+            flicker: true,
+            flickerSmoothing: 12,    // higher: smoother flicker
+            randomMotion: true,
+            noiseLength: 1000,
+            noiseStrength: 4,
+            pointsMultiplier: 1000   // multiplier for delaunay points, since floats too small can mess up the algorithm
+        };
+
+        // These MUST BE configured
+        DEFAULTS.canvas = fullScreenCanvas;
+
+        // This is optional, in case we want to see links in between
+        DEFAULTS.renderLinks = true;
+
+        // And to change big particles color
+        DEFAULTS.flareColor = 'white';
+
+        // We can pack our custom config into separate object. This is minimal implementation.
+        var config = {
+            canvas: canvas
+        };
+
+        // And it will overwrite defaults. Note, DrifterStars2.init(DEFAULTS); will work as well
+        DrifterStars2.init(config);
+
+        // And there is special endpoint for two particular mutations
+        DrifterStars2.setEnableLinks(true);
+        DrifterStars2.setFlareColor('#fff');
+
+        // This lib uses .addEventListener() to manipulate callbacks
+        // More reading on events below
+        // https://developer.mozilla.org/en-US/docs/Web/Events
+    </script>
+</body>
+</html>
